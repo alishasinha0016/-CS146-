@@ -1,0 +1,31 @@
+import java.util.*;
+class Palindrome{
+    public boolean checkPalindrome(String st){
+        String checkString = "";
+        String checkNewString = "";
+
+        st = st.toUpperCase();
+        for(int i = st.length()-1; i>=0;i--){
+            char ch = st.charAt(i);
+            if((ch >= 'A' && ch <= 'Z' )||(ch >='0' && ch <= '9')){
+                checkString = checkString + ch ;  
+                checkNewString = ch + checkNewString;
+
+            }
+        }
+
+        return (checkNewString.equals(checkString));
+
+    }
+    
+    public static void main (String args[]){
+        Scanner in = new Scanner (System.in);
+
+        Palindrome palinOb = new Palindrome();
+        System.out.println("Enter the phrase");
+        String s = in.nextLine();
+        boolean result = palinOb.checkPalindrome(s);
+        System.out.println("The entered phrase, '" + s +"', is Palindrome: " + result);
+
+    }
+}
