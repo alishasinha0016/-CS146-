@@ -1,0 +1,34 @@
+/*
+In this program, it was mentioend that we have been given an API bool isBadVersion(version) 
+which returns whether version is bad. In this program we have to Implement a function to find the bad version. 
+Here I have used left, right, and mid integer variavles that stores the index value of the element 
+in a data structure like array. The size of the array is 'n' whihc is passed as parameter to this function. 
+I have applied binary serach ligic where I am breaking teh data structure, like an array, into smaller 
+parts by eleminating elemnts and geting to the currect element.
+In te end, the function again checks if the resultant index has bad version. If yes, it returns 
+the index value otherwise it returns -1 in case there was no bad version pressent.
+*/
+import java.util.*;
+class BadVersion{
+    public int checkBadVersion(int n){
+        int left = 0;
+        int right = n - 1;
+        int mid = 0;
+        while(left < right){
+            mid = (left+right)/2;
+            if (isBadVersion(mid)){
+                right = mid;
+            }
+            else{
+                left = mid + 1;
+            }
+        }
+        // checking by calling API bool isBadVersion()if there really exists a bad version
+        if (isBadVersion(left))
+            return left;
+        //if there is no bad version, then  it will return -1   
+        else
+            return -1;
+    }
+
+}
