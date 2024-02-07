@@ -1,1 +1,38 @@
 
+import java.util.*;
+class AddUp{
+    public ArrayList <Integer> checkTraget(int arr [], int t){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int targetDifference = 0;
+        ArrayList<Integer> pairArray = new ArrayList<Integer>();
+
+        for(int i = 0; i < arr.length; i++){
+            targetDifference = t - arr[i];
+            if (map.containsKey(targetDifference)){
+                pairArray.add(i);
+                pairArray.add(map.get(targetDifference));
+            }
+            else{
+                map.put(arr[i],i);
+            }
+             
+        }
+
+        return pairArray;
+
+    }
+    public static void main (String args[]){
+        int integerArray [] = {0,2,3,7};
+        int target = 10;
+        AddUp obAdd = new AddUp();
+        ArrayList <Integer> resultList = obAdd.checkTraget(integerArray, target);
+        if (resultList.size()!=0){
+            System.out.println("The indices are: "+ resultList);
+        }
+        else{
+            System.out.println("No indices found");
+
+        }
+
+    }
+}
