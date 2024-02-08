@@ -8,6 +8,8 @@ parts by eleminating elemnts and geting to the currect element.
 In te end, the function again checks if the resultant index has bad version. If yes, it returns 
 the index value otherwise it returns -1 in case there was no bad version pressent.
 */
+
+Java Code:
 import java.util.*;
 class BadVersion{
     public int checkBadVersion(int n){
@@ -32,3 +34,20 @@ class BadVersion{
     }
 
 }
+
+------------------------------------------
+Python Code:
+def checkBadVersion(n: int) -> int:
+    left = mid = 0
+    right = n-1
+    while left < right:
+        mid = (left+right)//2
+        if (isBadVersion(mid)):
+            right = mid
+        else:
+            left = mid + 1
+
+    if (isBadVersion(left)):
+        return left
+    else:
+        return -1
