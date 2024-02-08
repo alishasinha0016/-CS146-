@@ -1,13 +1,15 @@
+Java Code:
+
 import java.util.*;
 class Palindrome{
     public boolean checkPalindrome(String st){
         String checkString = "";
         String checkNewString = "";
 
-        st = st.toUpperCase();
+        st = st.toLowerCase();
         for(int i = st.length()-1; i>=0;i--){
             char ch = st.charAt(i);
-            if((ch >= 'A' && ch <= 'Z' )||(ch >='0' && ch <= '9')){
+            if((ch >= 'a' && ch <= 'z' )||(ch >='0' && ch <= '9')){
                 checkString = checkString + ch ;  
                 checkNewString = ch + checkNewString;
 
@@ -17,7 +19,6 @@ class Palindrome{
         return (checkNewString.equals(checkString));
 
     }
-    
     public static void main (String args[]){
         Scanner in = new Scanner (System.in);
 
@@ -29,3 +30,28 @@ class Palindrome{
 
     }
 }
+
+-----------------------------------------------
+
+Python code:
+
+class Palindrome:
+    def checkPalindrome(self, st: str) -> bool:
+        checkString = ''
+        checkNewString = ''
+        for ch in st:
+            if ch.isalnum():
+                checkString += ch.lower()
+                checkNewString = ch.lower() + checkNewString
+
+        return checkNewString == checkString
+
+    def main(self):
+        s = input('Enter your first input:')
+        print('The entered phrase,"' + s + '", is Palindrome:', self.checkPalindrome(s))
+
+
+if __name__ == "__main__":
+    palinOb = Palindrome()
+    palinOb.main()
+
