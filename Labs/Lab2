@@ -1,3 +1,5 @@
+Java Code:
+
 import java.util.*;
 class Anagram{
     public boolean checkAnagram(String s1, String s2){
@@ -6,25 +8,41 @@ class Anagram{
         boolean checkAnagram = true;
 
         for (int i = 0; i < s1.length(); i++) {
-            if(!map.containsKey(s1.charAt(i))){
-                for(int j = 0;j<s1.length();j++){
-                    if (s1.charAt(i) == s1.charAt(j)){
-                        counter ++;
+            char ch = s1.charAt(i);
+            if(ch != ' '){
+                if(!map.containsKey(s1.charAt(i))){
+                    for(int j = 0;j<s1.length();j++){
+                        if (s1.charAt(i) == s1.charAt(j)){
+                            counter ++;
+                        }
                     }
+                    map.put(s1.charAt(i), counter);
+                    counter = 0;
                 }
-                map.put(s1.charAt(i), counter);
-                counter = 0;
-            }
+            } 
         }
-        for(int i = 0;i<s2.length();i++){
+        System.out.println("\n"+map+"\n");
+        for(int i = 0; i < s2.length(); i++){
             char ch = s2.charAt(i);
-            if (map.containsKey(ch)){
-                map.put(ch,map.get(ch)-1);
-            }
-            if (map.get(ch)<0){
-                checkAnagram = false;
+            if (ch != ' '){
+                if (map.containsKey(ch)){
+                    map.put(ch,map.get(ch)-1);
+                }
+                else
+                    return false;
+
+                if (map.get(ch)<0){
+                    return false;
+                }
             }
         }
+        System.out.println("\n"+map+"\n");
+        for (int i: map.values())
+        {
+            if (i!=0)
+                return false;
+        }
+
         return checkAnagram;
     }
     public static void main (String args[]){
@@ -42,3 +60,42 @@ class Anagram{
 
     }
 }
+
+----------------------------------------------
+Python Code:
+
+class Anagram:
+    def checkAnagram(self, s1: str, s2: str) -> bool:
+        map = {}
+        checkAnagram = True
+        for ch in s1:
+            if ch != ' ':
+                if ch in map:
+                    map[ch] += 1
+                else:
+                    map[ch] = 1
+
+        for ch in s2:
+            if ch != ' ':
+                if ch in map:
+                    map[ch] -= 1
+                else:
+                    return False
+
+        for i in map.values():
+            if i != 0:
+                return False
+
+        return checkAnagram
+
+    def main(self):
+        s = input("Enter your first phrase: ")
+        t = input("Enter your second phrase: ")
+
+        result = self.checkAnagram(s, t)
+        print(f"The entered phrases, '{s}' and '{t}', are Anagrams: {result}")
+
+
+if __name__ == "__main__":
+    obAnagram = Anagram()
+    obAnagram.main()
