@@ -24,7 +24,7 @@ class AddUp{
     }
     public static void main (String args[]){
         int integerArray [] = {0,2,3,7};
-        int target = 10;
+        int target = 11;
         AddUp obAdd = new AddUp();
         ArrayList <Integer> resultList = obAdd.checkTraget(integerArray, target);
         if (resultList.size()!=0){
@@ -35,10 +35,40 @@ class AddUp{
 
         }
 
+    }
+}
+
 -----------------------------------------------------------
 
 Python Code:
 
+class AddUp:
+    def checkTarget(self, arr, t) -> list:
+        map = {}
+        pair_array = []
 
-    }
-}
+        for i in range(len(arr)):
+            target_difference = t - arr[i]
+            if target_difference in map:
+                pair_array.append(i)
+                pair_array.append(map[target_difference])
+            else:
+                map[arr[i]] = i
+
+        return pair_array
+
+    def main(self):
+        integer_array = [0, 2, 3, 7]
+        target = 10
+
+        result_list = self.checkTarget(integer_array, target)
+        if result_list:
+            print("The indices are:", result_list)
+        else:
+            print("No indices found")
+
+if __name__ == "__main__":
+    ob_add = AddUp()
+    ob_add.main()
+
+
