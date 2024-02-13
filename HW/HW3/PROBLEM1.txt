@@ -17,6 +17,10 @@ Psuedo code for insertion sort:
   c7        arr[j + 1] = p;
   -     }
 
+Time Complexity: O(c1) + O(c1) +O(c2) +O(N) +O(c3) +O(c4) +O(N^2) +O(c5) +O(c6) + O(c7)
+Ignoring the constants and lower power, we get,
+Time Complexity = O(N^2)
+
 First, insertion sort is a sorting algorithm in which we compare the element 
 in a given array to its previous element in the same array. This comparison is made based on 
 what kind of order we want, ascending or descending. If we want the array in ascending order,
