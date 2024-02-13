@@ -18,7 +18,7 @@ Psuedo code for insertion sort:
   -     }
 
 First, insertion sort is a sorting algorithm in which we compare the element 
-in a given array to the previous element of the same array. This comparison is made based on 
+in a given array to its previous element in the same array. This comparison is made based on 
 what kind of order we want, ascending or descending. If we want the array in ascending order,
 then while comparing, we will check if the current element is smaller than its previous element.
 If it is smaller, the previous element will be moved to the current element's position, and the current element 
@@ -37,7 +37,7 @@ Here, because it is in the reverse order, each element will be compared to its p
 the beginning of the loop is reached. This happens each time for each element in the array.
 Hence, Time Complexity: O(N^2)
 
-Average Care: The average case will be where the elements in the array are mixed, that is, either already sorted or reverse sorted.
+Average Care: The average case will be where the elements in the array are mixed, that is, niether already sorted nor reverse sorted.
 Here, the loops will run, and elements will be swapped on a case by case basis.
 Hence, Time Complexity: O(N^2)
 
