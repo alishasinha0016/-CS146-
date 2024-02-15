@@ -1,1 +1,67 @@
+Psuedo code for insertion sort:
+
+ c1     int n = arr.length;
+ c2     int p = 0;
+ N      for (int i = 1; i < n; ++i) 
+ -       {
+ c3         int p = arr[i];
+ c4         int j = i - 1;
+ 
+            /* Move elements of arr[0..i-1], that are
+               greater than key, to one position ahead
+               of their current position */
+  N^2        while (j >= 0 && arr[j] > p) {
+  c5            arr[j + 1] = arr[j];
+  c6            j = j - 1;
+  -         }
+  c7        arr[j + 1] = p;
+  -     }
+
+Time Complexity: O(c1) + O(c1) +O(c2) +O(N) +O(c3) +O(c4) +O(N^2) +O(c5) +O(c6) + O(c7)
+Ignoring the constants and lower power, we get,
+Time Complexity using Big O notation : O(N^2)
+
+Now, using Omega and Theta:
+Omega Notation: Ω(N^2)
+Theta Notation: Θ(N^2)
+
+
+First, insertion sort is a sorting algorithm in which we compare the element 
+in a given array to its previous element in the same array. This comparison is made based on 
+what kind of order we want, ascending or descending. If we want the array in ascending order,
+then while comparing, we will check if the current element is smaller than its previous element.
+If it is smaller, the previous element will be moved to the current element's position, and the current element 
+will be moved to the previous element's position. This process will continue till we get the final array sorted in 
+ascending order.
+
+Let's analyze the time complexity of insertion sort:
+
+1. Best Case: The best case would be if the given array is already in ascending or descending order (sorted as required).
+In this scenario, the elements will be compared with their respective previous elements. Since the array is sorted, 
+no swapping of the elements will take place. 
+
+Time complexity:
+Hence, Time Complexity using Big O notation (upper bound): O(N)
+Since,in this case, the least number of time the loop will run is N. Therefore, the lower bound will be: Ω(N)
+Now, we can see that lower and upper bounds are O(N) and Ω(N) respectively. The theta notation will be: Θ(N)
+
+
+2. Worst Case: The worst case would be if the array is sorted in the reverse order (to what is expected or required).
+Here, because it is in the reverse order, each element will be compared to its previous element and swapped. This continues until
+the beginning of the loop is reached. This happens each time for each element in the array.
+
+Time complexity:
+Hence, Time Complexity using Big O notation (upper bound): O(N^2)
+Since,in this case, it will be a quardratic lower bound as comparisions and swaps will take place each time. Therefore, the lower bound will be: Ω(N^2)
+Now, we can see that lower and upper bounds are O(N^2) and Ω(N^2) respectively. The theta notation will be: Θ(N^2)
+
+
+3. Average Care: The average case will be where the elements in the array are mixed, that is, niether already sorted nor reverse sorted.
+Here, the loops will run, and elements will be swapped on a case by case basis.
+
+Time complexity:
+Hence, Time Complexity using Big O notation (upper bound): O(N^2)
+Since,in this case, it will be a quardratic lower bound as comparisions and swaps will take place. Therefore, the lower bound will be: Ω(N^2)
+Now, we can see that lower and upper bounds are O(N^2) and Ω(N^2) respectively. The theta notation will be: Θ(N^2)
+
 
