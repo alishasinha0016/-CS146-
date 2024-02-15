@@ -1,1 +1,61 @@
 
+Given Problem:
+
+      MATRIX_MULTIPLY(A, B): 
+c1      if columns(A) ≠ rows(B): 
+c2        raise ValueError("Matrix multiplication is not defined.") 
+    
+c3      rows_A ← number of rows in A 
+c4      cols_A ← number of columns in A 
+c5      cols_B ← number of columns in B 
+c6      result ← matrix of size rows_A x cols_B filled with zeros 
+    
+rows_A  for i from 1 to rows_A do: 
+cols_B    for j from 1 to cols_B do: 
+c7        sum ← 0 
+cols_A      for k from 1 to cols_A do: 
+c8            sum ← sum + A[i][k] * B[k][j] 
+c9          result[i][j] ← sum return result
+
+
+
+Since we have a nested loop with two loops inside an outer loop. Hence, the time complexity of the nested loop is O(rows_A*cols_B*cols_A)
+
+Total Time complexity = O(c1) + O(c2) + O(c3) + O(c4) + O(c5) + O(c6) + O(rows_A*cols_B*cols_A)
+We can ignore the constants at this time and get;
+
+Total Time complexity uding Big O noattion : O(rows_A*cols_B*cols_A)
+Now,
+Using Omega notation: Ω(rows_A*cols_B*cols_A)
+Using Theta Notation: Θ(rows_A*cols_B*cols_A)
+
+
+Best Case: The best case could be when we have a small matrix. Even then, because the element multiplication and addition are still required, 
+therefore, the three nested loops will be used. 
+
+Time Complexity:
+Upper Bound: O(rows_A*cols_B*cols_A).
+Lower Lound: Ω(rows_A*cols_B*cols_A) (As the best case has the least operation/ iteration that will be required)
+Theta notation: Θ(rows_A*cols_B*cols_A) (Since, upper bound and lower bounds are the same)
+
+Worst Case: The worst case scenario can occur when we have a significantly large matrix size to multiply. 
+However, since the necessary multiplication and addition of the elements will take place, the time complexity will remain the same: O (rows_A*cols_B*cols_A).
+
+Time Complexity:
+Upper Bound: O(rows_A*cols_B*cols_A) (As the worst will require the most operation/iteration)
+Lower Lound: Ω(rows_A*cols_B*cols_A)
+Theta notation: Θ(rows_A*cols_B*cols_A) (Since, upper bound and lower bounds are the same)
+
+Average Case: In cases where the matrix is not very big, it would be an average case. Again, because the necessary multiplication and addition of the elements will take place, 
+the time complexity will remain the same: O(rows_A*cols_B*cols_A).
+
+Time Complexity:
+Upper Bound: O(rows_A*cols_B*cols_A). 
+Lower Lound: Ω(rows_A*cols_B*cols_A)
+Theta notation: Θ(rows_A*cols_B*cols_A) (Since, upper bound and lower bounds are the same)
+
+Also, if we have square matrices of size 'n,' then the time complexity will be
+
+O(rows_A*cols_B*cols_A) = O(n^3)
+Ω(rows_A*cols_B*cols_A) = Ω(n^3)
+Θ(rows_A*cols_B*cols_A) = Θ(n^3)
