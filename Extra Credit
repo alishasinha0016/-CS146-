@@ -35,31 +35,7 @@ class Fibonacci {
 }
 
 
-========================================================
 
-Python Code:
 
-class Fibonacci:
-    def fibonacci_number(self, n: int):
-        if n < 0:
-            return None
-        if n <= 1:
-            return n
-        arr_fibonacci = [0, 1]
-        for i in range(2, n + 1):
-            arr_fibonacci.append(arr_fibonacci[i - 1] + arr_fibonacci[i - 2])
-        return arr_fibonacci[n]
-
-    def main(self):
-        n = int(input("Enter your number for 'nth' position:"))
-        fibNumber = self.fibonacci_number(n)
-        if fibNumber != None:
-            print(f"Fibonacci number at position number '{n}' is: {fibNumber}")
-        else:
-            print("Invalid input for 'nth' position.")
-
-if __name__ == "__main__":
-    ob_fibonacci = Fibonacci()
-    ob_fibonacci.main()
 
 
