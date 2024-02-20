@@ -1,1 +1,32 @@
+Below is some pseudocode. Come up with a recurrence relation, and solve that recurrence relation using any method of your choice.  
 
+T(N)  yetAnotherFunc(n): 
+c1       if n > 1: 
+10n        for(i=0;i<10n;i++)
+c2             doSomething;
+T(n/2)     yetAnotherFunc(n/2);
+T(n/2)     yetAnotherFunc(n/2);
+
+
+Here, we can see that the function calls itself recursively twice with n/2 as the argument. It also has a loop that iterates 10n times.
+
+Let T(n) be time complexity of yetAnotherFunc(n). 
+The time complexity of the loop is O(n) as it iterates 10n times. 
+Both the recursive call calls itself passing the parameter as n/2. 
+The recurrence relation would be:
+
+T(n) = 10n + 2T(n/2​) 
+
+To solve this recurrence relation, we can use the Master Theorem. 
+The recurrence relation is in the form T(n)=aT(n/b)+f(n), where a=2, b=2, and f(n)=10n.
+
+Now, if we compare f(n) with n^log​(a) base b:
+
+    n^log⁡b(a) = n^log⁡2(2)=n
+    f(n)=10n
+
+Now, because f(n)= O(n^c) for c=1. Therefore, the solution is:
+
+T(n)= Θ(n^log⁡2(2)*log⁡n) = Θ(nlog⁡n)
+
+So, the time complexity of yetAnotherFunc(n) is Θ(nlog⁡n).
