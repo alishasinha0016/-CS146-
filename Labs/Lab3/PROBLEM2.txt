@@ -1,1 +1,28 @@
+Now let's examine some [pseudo]code and apply asymptotic notation to it. 
 
+isPrime(n): 
+  for(i = 2, i*i <= n; i++) {
+    if(n % i == 0) {
+      return false
+    }
+  return true
+
+Best Case: The best case situation would be when n is not a prime number and specifically when n is multipme of 2. In this case, the loop will exit on the first iteration when i equals 2, and the function will return false. Hence, the loop will run only once. Therefore, the best case time complexity is O(1).
+Omega (Ω) notation: Ω(1) (constant time complexity)
+Theta (θ) notation: θ(1) (constant time complexity)
+
+Worst Case: The worst case would be when n is a prime number. In this case, the loop will iterate 
+from i = 2 until i^2 = n or when i = sqrt(n). The time complexirt in big Oh notation, O(sqrt(n)). Therefore, the worst case time complexity is O(sqrt(n)).
+Omega (Ω) notation: Ω(sqrt(n)) (lower bound, as the loop must iterate up to sqrt(n))
+Theta (θ) notation: θ(sqrt(n)) (tight bound, as the loop iterates up to sqrt(n))
+
+Average Case: Here the average case would be when the number is a prime number.We can also consider the case where the number is not prime and is an odd number. In this case, the loop will iterate from i = 2 until i^2 = n or when i = sqrt(n). The time complexirt in big Oh notation, O(sqrt(n)). Therefore, the worst case time complexity is O(sqrt(n)).  
+Omega (Ω) notation: Ω(sqrt(n)) (lower bound, as the loop must iterate up to sqrt(n))
+Theta (θ) notation: θ(sqrt(n)) (tight bound, as the loop iterates up to sqrt(n))
+
+
+Time complexity:
+
+    Best Case: O(1), Ω(1), θ(1)
+    Worst Case: O(sqrt(n)), Ω(sqrt(n)), θ(sqrt(n))
+    Average Case: O(sqrt(n)), Ω(sqrt(n)), θ(sqrt(n))
