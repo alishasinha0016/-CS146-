@@ -1,1 +1,48 @@
+Let's compare some basic math functions to refresh our memory. For each of the following, just write which function is asymptotically greater (So, you should be thinking about your asymptotic notations!). Show your reasoning for the same.
+
+1.     10000000000*n^2 vs n^3
+Here, n^3 is asymptotically greater than 10000000000*n^2.
+Reason: If we divide both sides by n^2 then we will have a constant and a variable, that is, 
+10000000000 and n
+Since a constant's value cannot be changed but variavle can take uo any value.
+Therefore, n^3 is asymptotically greater than 10000000000*n^2.
+
+2. n^2log(n) vs  n(log(n))^10
+Here, n^2log(n) is asymptotically greater than n(log(n))^10
+Reeason: If we divide both the sides by nlog(n), we will have,
+n vs (log(n))^9
+Now, if we take n = 10^100 and substitute it, we get,
+10^100 vs (log(10^100)^9
+10^100 vs (100log10)^9                                  (Let the log be of base 10)
+10^100 vs (100*1)^9
+10^100 vs 100^9
+10^100 vs 10^18 , whihc is, 10^100 > 10^18
+Therefore, n^2log(n) is asymptotically greater than n(log(n))^10
+
+3. nlogn vs 2^(n)^1/2
+Here, 2^(n)^1/2 is asymptotically greater than nlogn
+
+Reason: If we take log on both the expressions, we get,
+log(nlogn) vs (n)^1/2log(2)             
+let n = 256, then we will have,
+log(256log(256)) vs 256^1/2*log2
+log(2^8log(2^8)) vs 2^8/2*log 2             
+log(2^8*8log2)) vs 2^4*log2                      (Let the log be of base 2)
+log(2^8*2^3*1) vs 2^4*1
+log 2^11 vs 2^4
+11 vs 16, whihc is, nlogn < 2^(n)^1/2
+Therefore, 2^(n)^1/2 is asymptotically greater than nlogn
+
+4. 2^n vs 2^2n
+Here, 2^2n is asymptotically greater than 2^n
+
+Reason: If we divde both the expressions by 2^n, we will get a constant and an exponental expression, that is,
+2^n vs 2^2n
+2^n vs 2^n * 2^n    (divde both the expressions by 2^n)
+1 vs 2^n, which is, 1 < 2^n
+Therefore, 2^2n is asymptotically greater than 2^n
+
+
+
+
 
