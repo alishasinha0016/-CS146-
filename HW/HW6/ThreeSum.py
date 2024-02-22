@@ -3,25 +3,29 @@ from typing import List
 
 class ThreeSum:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        self.mergeSort(nums)
+        self.mergeSort(nums) #sorting the passed parameter, array nums, using merge sort
         n = len(nums)
         result = []
 
         for i in range(n):
-            if i > 0 and nums[i] == nums[i - 1]:
+            if i > 0 and nums[i] == nums[i - 1]: #// Here, we will be skipping the same or duplicate elements
                 continue
-            target = -nums[i]
+            target = -nums[i] # assign the value to target as the negative of nums[i]
+            #here we are assigning values to the two pointers,left_Index and right_Index
             left_index = i + 1
             right_index = n - 1
             while left_index < right_index:
-                if nums[right_index] + nums[left_index] == target:
+                if nums[right_index] + nums[left_index] == target: #if we find the sum that equals target, we will append the numbers in the list
                     result.append([nums[i], nums[left_index], nums[right_index]])
                     left_index += 1
                     right_index -= 1
+                    #if we find a duplicate, we skip it by updating left_index value
                     while left_index < right_index and nums[left_index] == nums[left_index - 1]:
                         left_index += 1
+                    #if we find a duplicate, we skip it by updating right_index value
                     while left_index < right_index and nums[right_index] == nums[right_index + 1]:
                         right_index -= 1
+                    #if the sum is less than target then we update the left_index else we update right_index
                 elif nums[left_index] + nums[right_index] < target:
                     left_index += 1
                 else:
