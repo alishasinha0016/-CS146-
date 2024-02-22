@@ -1,1 +1,9 @@
 
+In this program, I have first sorted the array using the merge sort in ascending order. The merge sort has complexity of O(nlogn) which makes the program more efficient that other sorting techniques. In this program, sorting was important because once we have the elements arranged in order, it makes finding the triplets easy as we can use the pointers to locate the triplets by applying the logic.
+
+I have used for loop to iterate through each element in the array. Also, to avoide any duplicate element, I have added a condition such that if the current element is equal of the previous element then we skip that iteration.
+Here, I have used the pointer technique where two pointer, left_Index and right_Index are used. The left_Index points at or stores the index value of the element preceeding the current element. Whereas, right_Index stores the index of the last element in the passed array. After this, we store negation of the current element in a variable called target. Next, to find the triplets, we check if the element at left_Index + the element at right_Index in the array equals the target. If yes, we append the respective three elements in the arraylist result (arraylist which contains list of type integers) using functions liks add(Arrays.asList(). Then we update the left_Index and right_Index. Inorder to make sure we skip duplicate elements, we have two while loops that checks if there are any duplicate elements and update the left_Inxex or right_Index accordingly.
+
+Furthermore, incase the sum of the elements in right_Index and left_Index is less that target, then we update the left_Indes by adding 1 otherwise update the right_Index by decreasing it by one. This process continues for each element in the array.
+In the end, we return the result list to the main function.
+
