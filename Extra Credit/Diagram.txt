@@ -1,1 +1,103 @@
+Let's say we have the following max heap:
+
+       8
+     /   \
+    7     6
+   / \   / \
+  5   4 3   2
+
+In this max heap, the root node (8) has the highest priority, followed by its children (7 and 6), and so on. We can use this max heap as a priority queue by performing operations such as insertion and extraction based on the priority.
+
+For example, if we insert a new element with priority 9 into the max heap, it will be placed at the appropriate position to maintain the heap property:
+
+       8
+     /   \
+    7     6
+   / \   / \     --->    comparing 9 and 5                        
+  5   4 3   2
+ /
+9
+
+       8
+     /   \
+    7     6
+   / \   / \     --->   comparing7 with 9 and 4
+  9   4 3   2
+ /
+5
+
+       8
+     /   \
+    9     6
+   / \   / \     --->  comparing 8 with 9 and 6
+  7   4 3   2
+ /
+5
+
+       9
+     /   \
+    8    6
+   / \   / \     ---> final
+  7   4 3   2
+ /
+5
+
+
+       9
+     /   \
+    8     6
+   / \   / \
+  7   4 3   2
+ /
+5
+
+If we extract the maximum element (root), the resulting max heap will be:
+
+       8
+     /   \
+    7     6  ---> swap 3 and 8
+   / \   / 
+  5   4 3   
+
+
+
+       3
+     /   \
+    7     6. -----> remove 8
+   / \   / 
+  5   4 8   
+
+
+
+       3
+     /   \
+    7     6. -----> remove 8
+   / \   
+  5   4   
+
+
+
+
+    7
+  /   \
+ 3     6.   -----> compare 3 with 7 and 6
+/ \   
+5   4 
+
+
+    7
+  /   \
+ 5     6.   -----> compare 3 with 5 and 4
+/ \   
+3  4 
+
+
+    7
+  /   \
+ 5     6.   -----> Final
+/ \   
+3  4 
+
+
+
 
