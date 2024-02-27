@@ -99,5 +99,43 @@ If we extract the maximum element (root), the resulting max heap will be:
 3  4 
 
 
+----------------------------
+A demo code that shows how, we can use Max Haep as Min Heap by negating the value:
+import java.util.PriorityQueue;
+
+class ConvertMaxHeapAsMinHeap {
+
+    // changing the sign of the value for min heap behavior
+    public void insert(int value) {
+        maxHeap.add(-value); 
+    }
+
+   .
+   .
+   .    
+   .
+// Extract the value and chamge its sign again
+    public int extractMin() {
+        return -maxHeap.poll(); 
+    }
+    public boolean isEmpty() {
+        return maxHeap.isEmpty();
+    }
+    public static void main(String[] args) {
+        MaxHeapAsMinHeap minHeap = new MaxHeapAsMinHeap();
+        minHeap.insert(4);
+        minHeap.insert(2);
+        minHeap.insert(1);
+        minHeap.insert(0);
+        minHeap.insert(-1);
+
+
+        while (!minHeap.isEmpty()) {
+            System.out.println(minHeap.extractMin());
+        }
+    }
+}
+
+Here, we are reversig the sign of the value while adding/inserting it into the heap. 
 
 
