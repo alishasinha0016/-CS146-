@@ -17,7 +17,7 @@ class LongestPalindrome {
             }
             HashMap<Character, Integer> map_Palin = new HashMap<>();
 
-            for ( i = 0; i<s_new.length(); i++){
+            for (i = 0; i<s_new.length(); i++){
                 ch = s_new.charAt(i);
                 if(map_Palin.containsKey(ch)){
                     map_Palin.put(ch, map_Palin.get(ch) + 1);
@@ -25,14 +25,14 @@ class LongestPalindrome {
                 else
                     map_Palin.put(ch,1);
             }
-
+            ch = ' ';
             for(Map.Entry<Character, Integer> e : map_Palin.entrySet()){
                 i = e.getValue()/2;
                 for(int j = 0; j<i;j++){
                     s_palin1 = s_palin1 + e.getKey();
                     s_palin2 = e.getKey() + s_palin2;
                 }
-                if(s_palin2 == "" && (e.getValue()%2)!= 0){
+                if(ch == ' ' && (e.getValue()%2)!= 0){
                     ch = e.getKey();
                 }
             }
@@ -55,7 +55,5 @@ class LongestPalindrome {
         else
             System.out.println("Invalid Entry");
 
-    }
-    
-    
+    }      
 }
