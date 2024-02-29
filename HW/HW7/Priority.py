@@ -1,12 +1,16 @@
-
 class Priority:
-    def priorityMinMeeting(self,intervals):
-        if not intervals:
-            return 0
+    def priorityMinMeeting(self, intervals):
+        if not intervals or len(intervals) < 1 or len(intervals) > 10**4:
+            return -1
+        for i in range(len(intervals)):
+            if intervals[i][0] < 0:
+                return -1
+            for j in range(len(intervals[i])):
+                if intervals[j][1] > 10**6:
+                    return -1
 
         end_index = 0
         count = 0
-
         self.sortByStartTime(intervals)
 
         end_times = []
@@ -34,8 +38,13 @@ def main():
     intervals1 = [[0, 30], [5, 10], [15, 20]]
     intervals2 = [[0, 1], [1, 2], [2, 3]]
     priOb = Priority()
-    print(priOb.priorityMinMeeting(intervals1))
-    print(priOb.priorityMinMeeting(intervals2))
+    result1 = priOb.priorityMinMeeting(intervals1)
+    result2 = priOb.priorityMinMeeting(intervals2)
+    if result1 != -1 or result2 != -1:
+        print(result1)
+        print(result2)
+    else:
+        print ("invalid")
 
 if __name__ == "__main__":
     main()
