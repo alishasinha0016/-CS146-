@@ -36,7 +36,10 @@ class LongestPalindrome {
                     ch = e.getKey();
                 }
             }
-            return (s_palin1+ch+s_palin2).length();
+            if (ch!=' ')
+                return (s_palin1+ch+s_palin2).length();
+            else
+                return (s_palin1+s_palin2).length();   
           }
         else{
             return -1;
