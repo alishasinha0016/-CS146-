@@ -2,13 +2,19 @@ import java.util.*;
 
 class Priority {
     public int priorityMinMeeting(int[][] intervals) {
-        if (intervals == null || intervals.length == 0) {
-            return 0;
+        if (intervals == null || intervals.length < 1 || intervals.length > Math.pow(10, 4 )) {
+            return -1;
+        }
+        for (int i = 0; i < intervals.length; i++){
+            if (intervals[i][0] < 0)
+                return -1;
+            for(int j = 0; j < intervals[i].length; j++){
+                if (intervals[j][1] > Math.pow(10, 6 ))
+                    return -1;
+            }                  
         }
         int count = 0, endIndex = 0;
-
         sortByStartTime(intervals);
-
         int endTimes [] = new int[intervals.length];
         
         for (int i = 0; i < intervals.length; i++) {
@@ -27,7 +33,7 @@ class Priority {
         return count;
     }
 
-    private void sortByStartTime(int[][] intervals) {
+    public void sortByStartTime(int[][] intervals) {
         int i = 0;
         int j = 0;
         int temp [] = new int [intervals.length];
@@ -48,8 +54,13 @@ class Priority {
         Priority priOb = new Priority();
         int num1 = priOb.priorityMinMeeting(intervals1);
         int num2 = priOb.priorityMinMeeting(intervals2);
-        System.out.println(num1); 
-        System.out.println(num2); 
+        if (num1 != -1)
+            System.out.println(num1); 
+        else
+            System.out.println("Invalid");
+        if (num2 != -1)    
+            System.out.println(num2); 
+        else
+            System.out.println("Invalid");
     }
 }
-
