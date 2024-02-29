@@ -18,7 +18,11 @@ class LongestPalindrome:
                     s_palin2 = key + s_palin2
                 if ch == ' ' and value % 2 != 0:
                     ch = key
-            return len(s_palin1 + ch + s_palin2)
+            if ch !=' ':
+                return len(s_palin1 + ch + s_palin2)
+            else:
+                return len(s_palin1 + s_palin2)
+
         else:
             return -1
 
@@ -34,4 +38,3 @@ class LongestPalindrome:
 if __name__ == "__main__":
     palinOb = LongestPalindrome()
     palinOb.main()
-
