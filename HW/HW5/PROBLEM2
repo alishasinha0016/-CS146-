@@ -15,18 +15,14 @@ The time complexity of the loop is O(n) as it iterates 10n times.
 Both the recursive call calls itself passing the parameter as n/2. 
 The recurrence relation would be:
 
-T(n) = 10n + 2T(n/2​) 
+T(n) = 10n + 2T(n/2​) = 2T(n/2​) + n (as we look at the equation asymptotically)
 
 To solve this recurrence relation, we can use the Master Theorem. 
-The recurrence relation is in the form T(n)=aT(n/b)+f(n), where a=2, b=2, and f(n)=10n.
+The recurrence relation is in the form T(n)=aT(n/b)+f(n), where a = 2, b = 2, k = 1, p = 0, and f(n) = n.
 
 Now, if we compare f(n) with n^log​(a) base b:
 
-    n^log⁡b(a) = n^log⁡2(2)=n
-    f(n)=10n
+log⁡b(a) = log⁡2(2) = 1 = k
+Therefore, it falls under case 3 of the Master Theorem.
 
-Now, because f(n)= O(n^c) for c=1. Therefore, the solution is:
-
-T(n)= Θ(n^log⁡2(2)*log⁡n) = Θ(nlog⁡n)
-
-So, the time complexity of yetAnotherFunc(n) is Θ(nlog⁡n).
+Hence, the time complexity is O(nlog(n))
