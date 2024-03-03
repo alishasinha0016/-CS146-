@@ -68,33 +68,61 @@ Because N^log⁡b(a) = N^log⁡2(9) = 2.19 > k = 2
 
 Therefore, the time complexity is O(N^log⁡b(a)) = O(N^log2(9)) = O(N^ln(9)).
 
-Now, solving it using substitution method, we get;
 
 
 4. T(N) = 100T(N/2) + n^logcn + 1  (c is a constant)
 This falls into case 3 of the Master Theorem with a=100, b=2, and f(N)=n^logcn + 1. 
 Here we can see that,
-N^log⁡b(a) = N^log⁡2(100) 
-= N^log⁡2(10^2) 
+log⁡b(a) = log⁡2(100) = 4.6 <
+= N^log⁡2(10^2) = 
 = N^2
 Therefore, the time complexity is O(N^2log⁡N)
 
 5. T(N) = 4T(N/2) + n^2logn
-This falls into case 3 of the Master Theorem with a=4, b=2, and f(N)=n^2logn.
+This falls into case 3 of the Master Theorem with a=4, b=2, k = 2, p = 1, and f(N)=n^2logn.
 Now, we can see that,
-N^log⁡b(a) = N^log⁡2(4) 
-= N^log⁡2(2^2) 
-= N^2
-Therefore, the time complexity is O(N^2(log⁡N)^2)
+log⁡b(a) = log⁡2(4) = 2 = k
+Therefore, it falls under case 2:
+Since, p > -1
+Time complexity = O(n^2* (log n)^2)
+
+Now, solving it using substitution method, we get;
+
+                     T(N)
+            /     |       \        \
+          T(N/2) T(N/2) T(N/2) T(N/2)     -----> 4*n^2logn time
+           /|\        /|\       /|\       /|\
+     T(N/4) ... T(N/4) ... T(N/4) ... T(N/4)   ------> 4*4*n^2logn/2
+       /|\               /|\               /|\ ..... till we reach T(1)
+
+At each level, we have a total of n^2 log n work to do (from the n^2 log n term in the recurrence relation). 
+Since there are log N levels (as the problem size decreases by half at each level), the total work done at each 
+level is n^2 log n. Therefore, the total work done is the sum of the work done at each level, 
+which is O(n^2 (log n)^2).
+
+
 
 6. T(N) = 5T(N/2) + n^2/logn
-This falls into case 3 of the Master Theorem with a=5, b=2, and f(N)=n^2/logn
+This falls into case 3 of the Master Theorem with a=5, b=2, k = 2, p  -1, and f(N)=n^2/logn
 Now, we can see that,
-N^logb(​a) = N^log2(​5), 
-Therefore, the time complexity is O(N^log2(​5)).
+logb(​a) = log2(​5) = 2.32 > k
+Therefore, it falls under case 1. Hence, the time complexity is O(n^log2(​5)) = O(n^2.32) .
+
+Now, using tree method to solve this problem, we get:
 
 
+                       T(N)
+             /      /    |      \      \
+          T(N/2) T(N/2) T(N/2) T(N/2) T(N/2)    ------> 5*n^2/logn
+           /|\        /|\       /|\       /|\
+     T(N/4) ... T(N/4) ... T(N/4) ... T(N/4) ... T(N/4)   ------> 5*5*n^2/log(n/2)
+       /|\               /|\               /|\               /|\ ..... till we reach T(1)
 
+
+At each level, we have n^2/log⁡n work to do (from the n^2/log⁡n term in the recurrence relation). 
+Since there are log⁡N levels (as the problem size decreases by half at each level), the total work done 
+at each level is (n2/log⁡n)*logn = n^2.  
+Therefore, the total work done is the sum of the work done at each level, which is O(n^2).
 
 
 
