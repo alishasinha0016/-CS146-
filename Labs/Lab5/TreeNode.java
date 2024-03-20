@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class TreeNode {
+ class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -20,7 +20,8 @@ public class TreeNode {
     }
 
 }
-class validateBST {
+
+ class validateBST {
 
     public static void main(String[] args) {
         // Constructing 1st BST
