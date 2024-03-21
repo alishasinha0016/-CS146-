@@ -1,1 +1,3 @@
-
+In this program, we are finding the lowestCommonAncestor, that is, the nodes that is the ancestor to both the given nodes even if the given nodes are not in the same level or subtree.
+In the method, lowestCommonAncestor(), first the constraints are checked calling the helper methods. In case the conditions are not met, an exception is thrown and the invalid input message to the user is printed. Next, for the base case, we check if the passed values like root is null or p or q is equal to root. In that case, we return the root. There are two recurssive calls that check for the ancestors in the left and right subtrees until we hit the base case. 
+Once we have ancestor's from left and right subtree, we check for the lowestCommonAncestor using if else conditions. If both left and right nodes are not null, then the current root is the returned as the lowestCommonAncestor. If only left is not null, we return left otherwise right as lowestCommonAncestor.
