@@ -1,1 +1,50 @@
 
+    1. Given an adjacency list, how can you convert it to an adjacency matrix? 
+    2. Given an adjacency matrix, how can you convert it to an adjacency list? 
+    3. Given a directed graph, how can you reverse the direction of each edge? 
+
+Answers:
+
+1. 
+public class AdjacencyListToMatrix {
+    public static int[][] convert(List<List<Integer>> adjList, int n) {
+        int[][] adjMatrix = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < adjList.get(i).size(); j++) {
+                int node = adjList.get(i).get(j);
+                adjMatrix[i][node] = 1;
+            }
+        }
+
+        return adjMatrix;
+    }
+Explanation: Here what is hapenning is that, we have used nested for loop that inerates through each vertex in the adjacency list. 
+Then, using the the inner for loop, for each vertex, we iterate through its adjacency list. Inside the inner for loop the corresponding entry is marked in the adjacency matrix as 1, indicating an edge exists between the two vertices.
+
+2. 
+public ArrayList<ArrayList<Integer>> convertMatrixToList(int[][] adjMatrix) {
+        ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
+
+        for (int i = 0; i < adjMatrix.length; i++) {
+            adjList.add(new ArrayList<>());
+            for (int j = 0; j < adjMatrix[i].length; j++) {
+                if (adjMatrix[i][j] == 1) {
+                    adjList.get(i).add(j);
+                }
+            }
+        }
+Explanation: Here again we have used nested for loops. In the outer loop, in each iteration, we add new arraylist to the adjList.
+In the inner for loop, we check if the entry in the corresponding location in the adjMatix is 1, indicating an edge between vertices i and j. We then add j to the adjacency list of vertex i.
+
+3. public class ReverseDirection {
+    public int[][] reverseEdges(int[][] adjMatrix) {
+        int n = adjMatrix.length;
+        int[][] reversedMatrix = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                reversedMatrix[j][i] = adjMatrix[i][j];
+            }
+        }
+Explanation: Here we are reversing the direction of each edge in a directed graph. We have used nested for loops here. The outer loop iterates over each node i in the graph. The inner loop iterates over each adjacent node j of node i. In side the inner loop, for each edge (i, j) in the original adjacency matrix, it sets the edge (j, i) in the reversed matrix. Hence, we have reversed the direction of each edge.
