@@ -16,6 +16,8 @@ public class CoursePrerequisites {
         }
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
+
+        if (checkValidity(numCourses, prerequisites)){
         // Create an adjacency matrix to represent the graph
         boolean[][] courseGraph = new boolean[numCourses][numCourses];
         for (int i = 0; i < prerequisites.length; i++) {
@@ -33,6 +35,13 @@ public class CoursePrerequisites {
 
         return true;
     } 
+    else
+    {
+        System.out.println("The inmput is not valid. Hence printing:");
+        return false;
+    }
+        
+    }
 
     public boolean checkRepeatCourse(boolean[][] graph, int v, boolean[] visited) {
         visited[v] = true;
@@ -45,7 +54,9 @@ public class CoursePrerequisites {
         }
         visited[v] = false;
         return false;
-    }
+    
+}
+
 
     public static void main(String[] args) {
         CoursePrerequisites cs = new CoursePrerequisites();
@@ -53,4 +64,3 @@ public class CoursePrerequisites {
         System.out.println(cs.canFinish(2, new int[][]{{1, 0}, {0, 1}}));  // Output: false
     }
 }
-
