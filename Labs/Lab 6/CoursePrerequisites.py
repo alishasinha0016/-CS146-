@@ -1,56 +1,46 @@
-public class CoursePrerequisites {
+class CoursePrerequisites:
+    def checkValidity(self, numCourses, prerequisites):
+        if numCourses < 1 or numCourses > 2000 or len(prerequisites) < 0 or len(prerequisites) > 5000:
+            return False
 
-    public boolean checkValidity(int numCourses, int[][] prerequisites)
-    {
-        // checking for the constraints 
-        if(numCourses < 1 || numCourses > 2000 || prerequisites.length <  0 || prerequisites.length > 5000)
-            return false;
-            int prerequisite [] = new int [2];
+        for prerequisite in prerequisites:
+            if len(prerequisite) != 2 or prerequisite[0] < 0 or prerequisite[1] >= numCourses:
+                return False
 
-            for(int i = 0; i<prerequisites.length; i++){
-                prerequisite = prerequisites[i];
-                if (prerequisites[i].length != 2 || prerequisite[0] < 0 || prerequisite[1] >= numCourses)
-                    return false;
-            }
-            return true;
-        }
+        return True
 
-    public boolean canFinish(int numCourses, int[][] prerequisites) {
-        // Create an adjacency matrix to represent the graph
-        boolean[][] courseGraph = new boolean[numCourses][numCourses];
-        for (int i = 0; i < prerequisites.length; i++) {
-            int[] prerequisite = prerequisites[i];
-            courseGraph[prerequisite[0]][prerequisite[1]] = true;
-        }
+    def canFinish(self, numCourses, prerequisites):
+        if self.checkValidity(numCourses, prerequisites):
+            # Create an adjacency matrix to represent the graph
+            courseGraph = [[False for _ in range(numCourses)] for _ in range(numCourses)]
+            for prerequisite in prerequisites:
+                courseGraph[prerequisite[0]][prerequisite[1]] = True
 
-        // Check for cycles using DFS
-        boolean[] visited = new boolean[numCourses];
-        for (int i = 0; i < numCourses; i++) {
-            if (!visited[i] && checkRepeatCourse(courseGraph, i, visited)) {
-                return false;
-            }
-        }
+            # Check for cycles using DFS
+            visited = [False] * numCourses
+            for i in range(numCourses):
+                if not visited[i] and self.checkRepeatCourse(courseGraph, i, visited):
+                    return False
 
-        return true;
-    } 
+            return True
+        else:
+            print("The input is not valid. Hence printing:")
+            return False
 
-    public boolean checkRepeatCourse(boolean[][] graph, int v, boolean[] visited) {
-        visited[v] = true;
-        for (int i = 0; i < graph.length; i++) {
-            if (graph[v][i]) {
-                if (visited[i] || checkRepeatCourse(graph, i, visited)) {
-                    return true;
-                }
-            }
-        }
-        visited[v] = false;
-        return false;
-    }
+    def checkRepeatCourse(self, graph, v, visited):
+        visited[v] = True
+        for i in range(len(graph)):
+            if graph[v][i]:
+                if visited[i] or self.checkRepeatCourse(graph, i, visited):
+                    return True
+        visited[v] = False
+        return False
 
-    public static void main(String[] args) {
-        CoursePrerequisites cs = new CoursePrerequisites();
-        System.out.println(cs.canFinish(2, new int[][]{{1, 0}}));  // Output: true
-        System.out.println(cs.canFinish(2, new int[][]{{1, 0}, {0, 1}}));  // Output: false
-    }
-}
+def main():
+    # Testing
+    ob = CoursePrerequisites()
+    print(ob.canFinish(2, [[1, 0]]))
+    print(ob.canFinish(2, [[1, 0], [0, 1]]))
 
+if __name__ == "__main__":
+    main()
